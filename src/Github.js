@@ -4,7 +4,7 @@ class Github extends Component {
   render(){
     return(
       <div>
-        $4k MRR by Jan 1, 2018!
+        <p>You'll be making $4k monthly MRR by Jan 1, 2018!!</p>
       </div>
     );
   }

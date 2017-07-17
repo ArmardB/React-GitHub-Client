@@ -9,11 +9,23 @@ class Header extends Component {
   }
 
   onLogin() {
-      this.props.onLogin();
+    this.props.onLogin();
+  }
+
+  onLogout() {
+    this.props.onLogout();
   }
 
   render(){
 
+    let sessionLink;
+
+    if (this.props.idToken) {
+      sessionLink = <NavItem onClick={this.onLogout.bind(this)} href="#">Logout</NavItem>
+    }
+    else {
+      sessionLink = <NavItem onClick={this.onLogin.bind(this)} href="#">Login</NavItem>
+    }
 
     return(
       <Navbar>
@@ -23,7 +35,7 @@ class Header extends Component {
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-          <NavItem onClick={this.onLogin.bind(this)} href="#">Login</NavItem>
+          {sessionLink}
         </Nav>
       </Navbar>
     );
